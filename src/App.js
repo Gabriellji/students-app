@@ -2,13 +2,17 @@ import React, { Component } from 'react';
 import './App.css';
 import { students } from './data/Students';
 import Student from './Components/Student';
+
+
 class App extends Component {
 
   state = {
     students,
     showStudents: true,
     showSchool: false,
-    showProjects: false
+    showProjects: false,
+    gitdata: {},
+    apiFinisged: false
   };
 
   showStudentsSection = () => {
@@ -33,6 +37,14 @@ class App extends Component {
       showSchool: false,
       showStudents: false
     });
+  }
+
+  componentDidMount() {
+    fetch('https://api.github.com/users/Gabriellji')
+    .then(response => response.json())
+    .then(data => this.setState({
+      gitdata: data
+    }))
   }
 
   render() {
@@ -63,7 +75,15 @@ class App extends Component {
           }
           {
             this.state.showSchool && 
-            <div>Show School</div>
+            <div>
+              <h1>Show School</h1>
+            {
+              this.state.apiFinisged 
+              ? <h1>Loading...</h1>
+            : <h3>{this.state.gitdata.login}</h3>
+            }
+            </div>
+
           }
           {
             this.state.showProjects && 

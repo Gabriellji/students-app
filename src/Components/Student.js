@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Button from './Button';
 
 class Student extends Component {
 
@@ -24,18 +25,20 @@ class Student extends Component {
                 <h1>{this.props.user.name}</h1>
                 <img src={this.props.user.picture} alt={this.props.user.name} />
                 <p>{this.props.user.shortAbout}</p>
-                <button
-                    onClick={this.showModal}
-                >Show more</button>
+                <Button
+                    text='Show more'
+                    action={this.showModal}
+                />
                 {
                     this.state.showProfile &&
                     <div className="model">
                         <h1>{this.props.user.name}</h1>
                         <img src={this.props.user.picture} alt={this.props.user.name} />
                         <p>{this.props.user.longAbout}</p>
-                        <button
-                            onClick={this.closeModal}
-                        >Close</button>
+                        <Button
+                            text='close'
+                            action={this.closeModal}
+                        />
                     </div>
                 }
             </div>
