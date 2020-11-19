@@ -1,25 +1,69 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import { students } from './data/Students';
+class App extends Component {
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  state = {
+    students,
+    showStudents: true,
+    showSchool: false,
+    showProjects: false
+  };
+
+  showStudentsSection = () => {
+    this.setState({
+      showStudents: true,
+      showSchool: false,
+      showProjects: false
+    });
+  };
+
+  showStudentsSchool = () => {
+    this.setState({
+      showSchool: true,
+      showStudents: false,
+      showProjects: false
+    });
+  };
+
+  showStudentsProjects = () => {
+    this.setState({
+      showProjects: true,
+      showSchool: false,
+      showStudents: false
+    });
+  }
+
+  render() {
+    return(
+      <div>
+        <nav>
+          <div onClick={this.showStudentsSection}>
+            Show Students
+          </div>
+          <div onClick={this.showStudentsSchool}>
+            Show School
+          </div>
+          <div onClick={this.showStudentsProjects}>
+            Show Projects
+          </div>
+          </nav>
+          {
+            this.state.showStudents && 
+            <div 
+            >Show Students</div>
+          }
+          {
+            this.state.showSchool && 
+            <div>Show School</div>
+          }
+          {
+            this.state.showProjects && 
+            <div>Show Projects</div>
+          }
+      </div>
+    )
+  }
 }
 
 export default App;

@@ -36,3 +36,21 @@
     transform: rotate(360deg);
   }
 }
+
+nav {
+  height: 70px;
+  display: flex;
+  justify-content: space-around;
+  background-color: antiquewhite;
+
+}
+
+nav div {
+  width: 33%;
+  text-align: center;
+  padding: 20px;
+}
+
+nav div:hover {
+  background-color: burlywood;
+}
