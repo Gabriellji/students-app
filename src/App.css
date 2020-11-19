@@ -54,3 +54,36 @@ nav div {
 nav div:hover {
   background-color: burlywood;
 }
+
+.students {
+  display: flex;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+}
+
+.students-card {
+  width: 250px;
+  height: 550px;
+  margin: 20px;
+  padding: 20px;
+  background-color: lightblue;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.students-card img {
+  width: 200px;
+  height: 200px;
+}
+
+.model {
+  position: fixed;
+  z-index: 1;
+  top: 10%;
+  left:25%;
+  width: 40%;
+  height: 600px;
+  background-color: coral;
+  padding: 20px;
+  box-shadow: 10px 10px 280px 40px rgba(0,0, 0,0.4);
+}

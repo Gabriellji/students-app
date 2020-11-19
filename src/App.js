@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { students } from './data/Students';
+import Student from './Components/Student';
 class App extends Component {
 
   state = {
@@ -50,8 +51,15 @@ class App extends Component {
           </nav>
           {
             this.state.showStudents && 
-            <div 
-            >Show Students</div>
+            <div className="students"
+          >{
+            this.state.students.map((student, index ) => (
+              <Student
+              key={index} 
+              user={student}
+              />
+            ))
+          }</div>
           }
           {
             this.state.showSchool && 
